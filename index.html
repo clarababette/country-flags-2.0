@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌍</text></svg>"
+    />
+    <title>Flags</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Countries with their flags</h1>
+      <div class="add_countries">
+        <div>Add to your list of countries</div>
+        <label for="country">Country</label>
+        <input type="text" id="country" />
+        <div class="country_error"></div>
+        <label for="flag">Flag</label>
+        <input type="text" id="flag" />
+        <div class="flag_error"></div>
+        <input type="button" value="Add" class="add_btn button" />
+      </div>
+      <div class="search_countries">
+        <input type="text" placeholder="Search" class="search_criteria" />
+        <button class="search_btn material-icons-round">search</button>
+        <div class="results"></div>
+        <button class="clear_search">x</button>
+      </div>
+      <div class="countries"></div>
+      <a href="https://emojipedia.org/flags/">Find more flags here!</a>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  <script id="handlebars-template" type="text/x-handlebars-template">
+    {{#each countries}}
+      <div class='country'>
+        <div class='name'>{{this.name}}</div>
+        <div class='flag'>{{this.flag}}</div>
+      </div>
+    {{/each}}
+  </script>
+  <script type="module" src="./useful_functions.js"></script>
+  <script type="module" src="./countries.js"></script>
+  <script type="module" src="./index.js"></script>
+</html>

@@ -1,0 +1,189 @@
+* {
+  color: black;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+body {
+  margin: 10px auto;
+  width: 100vw;
+  max-width: 1000px;
+}
+h1 {
+  font-weight: 900;
+  text-align: left;
+}
+
+.button {
+  color: white;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.5rem;
+  background-color: black;
+  width: fit-content;
+}
+input[type='text'] {
+  border: 1px solid;
+  padding: 5px;
+  font-weight: 500;
+  margin: 10px auto;
+  text-align: left;
+  width: auto;
+}
+
+.container {
+  width: calc(100% - 20px);
+  display: grid;
+  margin: 0px auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  grid-template-areas:
+    'title     title'
+    'search    .'
+    'countries add'
+    'countries .';
+  justify-items: start;
+}
+
+.title {
+  grid-area: title;
+}
+
+.countries {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+  column-gap: 5px;
+  grid-area: countries;
+  align-items: flex-start;
+}
+
+.add_countries {
+  grid-area: add;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  align-content: flex-start;
+}
+
+.add_countries input {
+  width: 10rem;
+}
+
+.add_countries :first-child {
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.country {
+  border: solid 1px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 5px;
+  justify-items: center;
+  width: 5em;
+}
+
+/* .name {
+} */
+
+.search_btn {
+  background: none;
+  border: none;
+}
+
+.flag {
+  font-size: 4em;
+}
+
+#flag {
+  font-size: 5em;
+  text-align: center;
+}
+
+.search_countries {
+  grid-area: search;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.country_error,
+.flag_error {
+  font-size: 0.7em;
+  text-align: left;
+  color: crimson;
+  margin-bottom: 2em;
+  min-height: 1em;
+}
+
+.clear_search {
+  border: none;
+  color: crimson;
+  background: none;
+  font-weight: 700;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    grid-template-areas:
+      'title'
+      'add'
+      'search'
+      'countries';
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+
+  .country {
+    width: 3em;
+  }
+
+  .flag {
+    font-size: 1.5em;
+  }
+
+  .name {
+    font-size: 0.5em;
+  }
+
+  .add_countries {
+    font-size: 0.7em;
+    width: 100%;
+    grid-template-columns: auto auto auto;
+  }
+
+  .add_countries :first-child {
+    font-weight: 700;
+    margin-bottom: 1em;
+    grid-column: span 3;
+  }
+  .add_countries input {
+    width: auto;
+    grid-row: 3;
+    font-size: 0.7em;
+  }
+
+  .add_countries input.button {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .add_countries label {
+    grid-row: 2;
+  }
+  #flag {
+    width: 100%;
+    font-size: 1em;
+    width: 3em;
+  }
+
+  .country_error,
+  .flag_error {
+    grid-row: 4;
+  }
+}
